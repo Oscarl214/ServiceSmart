@@ -10,6 +10,7 @@ import {
   Button,
 } from 'react-native';
 
+import { useTheme,Layout } from '@ui-kitten/components';
 const login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -18,9 +19,17 @@ const login = () => {
     setName('');
     setEmail('');
   };
+
+  const theme=useTheme()
+
+
   return (
-    <View style={styles.container}>
+    <Layout style={{ flex: 1, backgroundColor: theme['color-basic-800'] }}>
+
       <View style={styles.form}>
+        <Text style={styles.heading}>
+          Login
+        </Text>
         <TextInput
           style={styles.input}
           placeholder="Name"
@@ -28,7 +37,10 @@ const login = () => {
           value={name}
         />
         <TextInput
-          style={styles.input}
+          style={[styles.input,
+            {
+              borderColor: theme['color-primary-800'], 
+            },]}
           placeholder="Email"
           onChangeText={(text) => setEmail(text)}
           value={email}
@@ -36,26 +48,32 @@ const login = () => {
         />
         <Button title="Submit" onPress={handleSubmit} />
       </View>
-    </View>
+    </Layout>
   );
 };
 
 const styles = StyleSheet.create({
+  heading: {
+   display: 'flex',
+   justifyContent: 'center',
+   color: 'white',
+   marginBottom: 4
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
   },
   form: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    backgroundColor: '#000',
+    flex: 1,
+    backgroundColor: 'primary-color-100',
+    justifyContent: 'center',
+    height: 'auto',
     padding: 20,
   },
   input: {
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: 'color-primary-800',
     padding: 10,
     marginBottom: 10,
   },

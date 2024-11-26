@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-const SplashScreen = () => {
+const splash = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SplashScreen;
+export default splash;
