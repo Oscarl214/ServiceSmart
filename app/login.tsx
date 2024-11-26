@@ -20,8 +20,8 @@ const login = () => {
   const theme = useTheme();
 
   return (
-    <LinearGradient colors={['black', 'white']} style={styles.background}>
-      <Layout style={styles.container}>
+   
+      <Layout style={[styles.container, {backgroundColor: theme['color-base-700']}]}>
         <View style={[styles.form, { backgroundColor: theme['color-basic-100'] }]}>
           <Text style={styles.heading}>Login</Text>
           <TextInput
@@ -33,7 +33,7 @@ const login = () => {
           <TextInput
             style={[
               styles.input,
-              { borderColor: theme['color-primary-800'] },
+              { borderColor: theme['color-primary-100'] },
             ]}
             placeholder="Email"
             onChangeText={(text) => setEmail(text)}
@@ -43,7 +43,7 @@ const login = () => {
           <Button onPress={handleSubmit}>Log in</Button>
         </View>
       </Layout>
-    </LinearGradient>
+
   );
 };
 
